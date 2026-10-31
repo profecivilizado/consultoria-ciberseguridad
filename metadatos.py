@@ -5,8 +5,8 @@ Uso:
   1. pip install pillow
   2. Guarda tus fotos en la carpeta "originales" con estos nombres
      (cualquier formato: .jpg, .png, .webp):
-       hugo-1 ... hugo-5, lucia-1 ... lucia-5, dani-1 ... dani-4
-       hugo-avatar, lucia-avatar, dani-avatar   (fotos de perfil, opcionales)
+       hugo-1 ... hugo-5, dani-1 ... dani-4
+       hugo-avatar, dani-avatar   (fotos de perfil, opcionales)
   3. python metadatos.py
   -> Deja cada foto en "img" como JPG cuadrado de 1080 px, sin los
      metadatos originales (los de la IA o los de tu móvil) y con la
@@ -27,7 +27,6 @@ LADO = 1080
 
 MOVIL = {
     "hugo": ("Apple", "iPhone 14"),
-    "lucia": ("samsung", "Galaxy S23"),
     "dani": ("Apple", "iPhone de Daniel Ortega"),  # el nombre del dispositivo es una pista
 }
 
@@ -38,11 +37,6 @@ FOTOS = {
     "hugo-3": ("2026:10:10 18:02:11", None, None),            # guía de viaje
     "hugo-4": ("2026:07:03 12:40:05", None, None),            # perro
     "hugo-5": ("2024:03:12 21:05:44", None, None),            # tarta
-    "lucia-1": ("2026:10:19 10:58:07", None, None),           # carrera
-    "lucia-2": ("2026:10:12 15:17:39", 39.40667, -13.20950),  # café La Tahona
-    "lucia-3": ("2026:10:09 07:56:41", 39.40333, -13.21350),  # balcón = su casa (inicio de las rutas)
-    "lucia-4": ("2026:10:02 21:08:55", None, None),           # gata
-    "lucia-5": ("2026:09:28 09:30:12", None, None),           # tortitas
     "dani-1": ("2026:10:20 19:27:33", 39.41000, -13.21700),   # setup = su casa
     "dani-2": ("2026:10:14 17:58:12", None, None),            # husky
     "dani-3": ("2026:10:05 17:44:09", None, None),            # skatepark

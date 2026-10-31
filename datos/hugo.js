@@ -6,7 +6,41 @@ CASOS.hugo = {
  study: "2.º de Turismo (Universidad de Valdemora)",
  nick: "hferrer06", picto: "hugo.ferrer.trips", h: 200,
  hook: "Mientras estaba de viaje, alguien intentó entrar en sus cuentas y jugó partidas con su perfil de videojuegos.",
- situation: "El 25 de octubre, de madrugada, Hugo recibió un aviso de Picto: alguien había pedido restablecer su contraseña. Ese mismo día descubrió partidas en su cuenta de PlayArena que él no había jugado. Hugo está de vacaciones con su familia y asegura que «solo sube fotos del viaje».",
+ situation: "El 25 de octubre, de madrugada, Hugo recibió un aviso de Picto: alguien había intentado entrar en su cuenta. Ese mismo día descubrió partidas en su cuenta de PlayArena que él no había jugado. Hugo está de vacaciones con su familia y asegura que «solo sube fotos del viaje».",
+
+ /* ---------- Preguntas guiadas de cada herramienta ---------- */
+ preg: {
+  cybersearch: [
+   "Busca <b>hferrer06</b>. ¿Cuántos resultados aparecen? Abre cada uno.",
+   "<b>H1</b> · En el foro, ¿qué fechas exactas dice Hugo que estará fuera de casa? ¿Quién se va con él?",
+   "<b>H1</b> · ¿Qué correo electrónico aparece en la firma del mensaje?",
+   "<b>H2</b> · Apunta el día y la hora de las últimas partidas de PlayArena. Las necesitarás más adelante.",
+   "<b>H3</b> · ¿La noticia de la universidad supone algún riesgo? ¿Por qué?",
+   "<b>H4</b> · El registro técnico recoge datos sin que Hugo los publique. Escribe tres. ¿Es huella digital activa o pasiva?"],
+  picto: [
+   "Busca a Hugo en Picto. Aparecen varias cuentas: ¿cuál es la suya? Escribe <b>dos datos</b> que te lo confirmen (piensa en lo que viste en CyberSearch).",
+   "<b>R4</b> · ¿Cuántos días se va de viaje? ¿A qué hora sale el vuelo? ¿Se ve la entrada de su casa?",
+   "<b>R3</b> · ¿Qué cuenta Hugo sobre la alarma de su casa?",
+   "<b>R2</b> · Escribe todos los datos que se leen en la tarjeta de embarque.",
+   "<b>R1</b> · ¿Dónde está Hugo el 27 de octubre? Lee los comentarios: ¿quién cuida de su perro? Entonces, ¿hay alguien en su casa?",
+   "<b>R6</b> · ¿Cómo se llama su primera mascota? Apúntalo: lo necesitarás en la misión 2.",
+   "<b>R7</b> · ¿Qué día es el cumpleaños de Hugo? ¿Qué le pide su amigo edu_99 y por qué?",
+   "<b>R5</b> · ¿Esta publicación supone algún riesgo?",
+   "<b>R8</b> · Mira los ajustes de privacidad. ¿Qué dos ajustes cambiarías primero?"],
+  archivos: [
+   "<b>A1</b> · Es la foto original de la publicación R4. ¿Tiene coordenadas GPS? ¿Qué lugar marca el mapa?",
+   "<b>A1</b> · Junta A1 con R4: ¿qué puede saber ahora un desconocido?",
+   "<b>A2</b> · Es la foto original de R1. ¿Dónde y a qué hora se hizo? ¿Coincide con lo que publicó Hugo?",
+   "<b>A3</b> · Sin abrir el documento, ¿qué información dan sus propiedades (título, autor, ordenador)?"],
+  cuentas: [
+   "¿En qué cuentas tiene Hugo activada la verificación en dos pasos?",
+   "Mira la fecha de «Contraseña cambiada» de <b>C1</b>, <b>C3</b> y <b>C4</b>. ¿Qué tienen en común? ¿Qué te hace pensar?",
+   "<b>C4</b> · Lee el aviso de TrotaForo. ¿Qué datos se filtraron?",
+   "<b>C3</b> · ¿Desde dónde se entró en PlayArena el 25 de octubre? Según R1, ¿pudo ser Hugo? ¿Qué hizo el atacante?",
+   "<b>C1</b> · En Valmail, el atacante puso la contraseña correcta. ¿Por qué no pudo entrar?",
+   "Haz la <b>prueba de recuperación</b> de Picto con lo que apuntaste en R6. ¿Lo has conseguido?",
+   "Completa: «El atacante consiguió la contraseña de Hugo en ___ y pudo usarla en otras cuentas porque ___»."]
+ },
 
  /* ---------- Misión 1 · CyberSearch ---------- */
  search: {
@@ -32,26 +66,33 @@ En Krabi a finales de octubre aún llueve por las tardes, pero se disfruta. El s
 
  /* ---------- Misión 1 · Picto ---------- */
  pic: {
+  search: {
+   q: ["hugo", "ferrer", "hugo ferrer", "hugo.ferrer.trips", "hferrer06", "hferrer"],
+   decoys: [
+    {user: "hugoferrer_", name: "Hugo Ferrer", bio: "📷 Fotógrafo de bodas\nBarcelona", posts: 845, fol: "12,3 mil", seg: "410", tiles: [["💍", 330], ["📷", 20], ["🌸", 300], ["🥂", 45], ["💐", 280], ["🌅", 30]]},
+    {user: "hugo_ferrer_2003", name: "Hugo F.", bio: "Sevilla ⚽", posts: 38, fol: "212", seg: "380", priv: true},
+    {user: "hferrer.music", name: "Hugo Ferrer", bio: "🎸 Guitarrista · Conciertos en Valencia\nNuevo single ya disponible", posts: 126, fol: "2.104", seg: "530", tiles: [["🎸", 10], ["🎤", 280], ["🎶", 220], ["🎧", 190]]}
+   ],
+   pos: 1},
   bio: "✈️ 14 países y contando\nValdemora → el mundo\nTurismo · UVal", posts: 212, fol: "1.240", seg: "486",
   hl: [["🗼", "París"], ["🍣", "Japón"], ["🏛️", "Roma"], ["🌴", "Tailandia"]],
   feed: [
-   {c: "R1", img: "hugo-1", ph: ["🏝️", "Playa tropical"], date: "27 de octubre · 16:20", loc: "Railay Beach, Krabi (Tailandia)", likes: 318, cap: "Día 3. No quiero volver nunca 🏝️", cm: [["marcos_vld", "¿Y Rufo quién lo cuida?"], ["hugo.ferrer.trips", "En la residencia canina hasta que volvamos 🐶"], ["laura.prz", "Qué envidia 😭"]]},
+   {c: "R1", img: "hugo-1", ph: ["🏝️", "Playa tropical"], date: "27 de octubre · 16:20", loc: "Railay Beach, Krabi (Tailandia)", likes: 318, cap: "Día 3. No quiero volver nunca 🏝️", cm: [["marcos_vld", "¿Y Rufo quién lo cuida?"], ["hugo.ferrer.trips", "Está en la residencia canina hasta que volvamos. En casa no queda nadie 🐶"], ["laura.prz", "Qué envidia 😭"]]},
    {c: "R2", shot: ["boarding"], date: "24 de octubre · 05:12", loc: "Aeropuerto de Madrid-Barajas", likes: 201, cap: "Primera escala ✈️", cm: [["mamá_ferrer", "Avisa cuando aterricéis ❤️"]]},
    {c: "R3", shot: ["story", {bg: "linear-gradient(160deg,#3b4a63,#1b2230)", text: "Alarma puesta 😎", sub: "Casa, nos vemos en 2 semanas 👋", foot: "Historia destacada · «Tailandia»"}], date: "24 de octubre · 04:30", likes: 0, cap: "", cm: []},
    {c: "R4", img: "hugo-2", ph: ["🌃", "Portal de noche"], date: "23 de octubre · 23:40", likes: 267, cap: "La última noche en casa… ¡mañana nos vamos 15 días a Tailandia! 🇹🇭 El vuelo sale a las 6", cm: [["mamá_ferrer", "¿Has cerrado el gas? 😂"], ["edu_99", "Tráeme algo!!"]]},
-   {c: "R5", img: "hugo-3", ph: ["📖", "Guía de viaje"], date: "10 de octubre · 18:05", likes: 84, cap: "Deberes antes del viaje 📖 ¿Alguna recomendación de Bangkok?", cm: [["irene.gil", "El mercado flotante, sin duda"]]},
-   {c: "R6", shot: ["old", {ctx: "Comentario de @hugo.ferrer.trips en una publicación de @restauranteelpuerto", text: "«Pésimo servicio. El camarero, Rubén, un inútil. A ver si lo echan ya 🤡»", date: "2 de septiembre de 2026", rep: ["restauranteelpuerto: Sentimos tu experiencia, Hugo. Escríbenos por privado.", "laura.prz: Hugo, eso no se dice así…"]}], date: "2 de septiembre de 2026", likes: 12, cap: "(Captura de un comentario público de Hugo)", cm: []},
-   {c: "R7", img: "hugo-4", ph: ["🐕", "Perro en el parque"], date: "3 de julio de 2026", likes: 240, cap: "Rufo cumple 5 años 🐶 Mi primera mascota y la mejor", cm: [["mamá_ferrer", "El rey de la casa ❤️"]]},
-   {c: "R8", img: "hugo-5", ph: ["🎂", "Tarta de cumpleaños"], date: "12 de marzo de 2024", likes: 188, cap: "18 con los de siempre 🎉 @laura.prz @marcos_vld @edu_99", cm: [["edu_99", "Bórrala porfa, que salgo fatal 😅"], ["laura.prz", "¡Felices 18! 🎂"]]}
+   {c: "R5", img: "hugo-3", ph: ["📖", "Mapa de viaje"], date: "10 de octubre · 18:05", likes: 84, cap: "Deberes antes del viaje 📖 ¿Alguna recomendación de Bangkok?", cm: [["irene.gil", "El mercado flotante, sin duda"]]},
+   {c: "R6", img: "hugo-4", ph: ["🐕", "Perro en el parque"], date: "3 de julio de 2026", likes: 240, cap: "Rufo cumple 5 años 🐶 Mi primera mascota y la mejor", cm: [["mamá_ferrer", "El rey de la casa ❤️"]]},
+   {c: "R7", img: "hugo-5", ph: ["🎂", "Tarta de cumpleaños"], date: "12 de marzo de 2024", likes: 188, cap: "¡Hoy cumplo 18! 🎉 Con los de siempre @laura.prz @marcos_vld @edu_99", cm: [["edu_99", "Quítame la etiqueta porfa, que no quiero que me vean en tu perfil 😅"], ["laura.prz", "¡Felices 18! 🎂"]]}
   ],
-  priv: {c: "R9", rows: [["Cuenta", "Pública"], ["Mostrar ubicación en publicaciones", "Siempre"], ["Quién puede enviarte mensajes", "Cualquiera"], ["Revisar etiquetas antes de publicarlas", "No"], ["Verificación en dos pasos", "No"]]}
+  priv: {c: "R8", rows: [["Cuenta", "Pública"], ["Mostrar ubicación en publicaciones", "Siempre"], ["Quién puede enviarte mensajes", "Cualquiera"], ["Revisar etiquetas antes de publicarlas", "No"], ["Verificación en dos pasos", "No"]]}
  },
 
  /* ---------- Misión 1 · Archivos ---------- */
  files: [
   {c: "A1", name: "hugo-2.jpg", kind: "jpg", ph: ["🌃", "Portal de noche"], note: "Foto original de la publicación R4"},
   {c: "A2", name: "hugo-1.jpg", kind: "jpg", ph: ["🏝️", "Playa tropical"], note: "Foto original de la publicación R1"},
-  {c: "A3", name: "itinerario_tailandia.docx", kind: "docx", props: [["Título", "Tailandia 24 oct – 8 nov"], ["Autor", "Hugo Ferrer"], ["Último en guardar", "PC-FERRER-SALON"], ["Creado", "15/09/2026 · 20:11"], ["Modificado", "20/10/2026 · 23:02"], ["Comentario oculto", "«Llaves de repuesto: maceta del rellano, 4.º»"]]}
+  {c: "A3", name: "itinerario_tailandia.docx", kind: "docx", props: [["Título", "Viaje a Tailandia · 24 oct – 8 nov · familia Ferrer"], ["Autor", "Hugo Ferrer"], ["Ordenador", "PC-FERRER-SALON"], ["Creado", "15/09/2026 · 20:11"], ["Modificado", "20/10/2026 · 23:02"]]}
  ],
  meta: {
   "hugo-1.jpg": {make: "Apple", model: "iPhone 14", date: "27/10/2026 16:18:31", gps: [8.01150, 98.83780]},
@@ -62,22 +103,9 @@ En Krabi a finales de octubre aún llueve por las tardes, pero se disfruta. El s
  acc: [
   {c: "C1", svc: "Valmail", ic: "✉️", id: "hferrer06@valmail.es", kv: [["Verificación en dos pasos", "Activada (SMS)"], ["Recuperación", "Teléfono +34 6•• ••• •18"], ["Contraseña cambiada", "12/03/2023"]], act: [["24/10 05:01", "Inicio de sesión · Madrid · iPhone"], ["25/10 03:18", "Contraseña correcta desde Bucarest (Rumanía) · Bloqueado: no se introdujo el código SMS", 1]]},
   {c: "C2", svc: "Picto", ic: "📸", id: "@hugo.ferrer.trips", kv: [["Verificación en dos pasos", "Desactivada"], ["Recuperación", "Pregunta de seguridad"], ["Contraseña cambiada", "05/06/2024"]], act: [["25/10 03:24", "Inicio de sesión fallido · Bucarest (Rumanía) · contraseña incorrecta", 1], ["25/10 03:26", "Restablecimiento por pregunta de seguridad · 3 respuestas incorrectas", 1], ["27/10 16:19", "Inicio de sesión · Krabi (Tailandia) · iPhone"]]},
-  {c: "C3", svc: "PlayArena", ic: "🎮", id: "hferrer06", kv: [["Verificación en dos pasos", "Desactivada"], ["Recuperación", "Correo electrónico"], ["Contraseña cambiada", "12/03/2023"]], act: [["19/10 21:10", "Inicio de sesión · Valdemora · PC"], ["25/10 03:21", "Inicio de sesión · Bucarest (Rumanía) · Chrome/Windows", 1], ["25/10 05:44", "Canje de 1.200 monedas por objetos transferibles", 1]]},
+  {c: "C3", svc: "PlayArena", ic: "🎮", id: "hferrer06", kv: [["Verificación en dos pasos", "Desactivada"], ["Recuperación", "Correo electrónico"], ["Contraseña cambiada", "12/03/2023"]], act: [["19/10 21:10", "Inicio de sesión · Valdemora · PC"], ["25/10 03:21", "Inicio de sesión correcto · Bucarest (Rumanía) · Chrome/Windows", 1], ["25/10 05:44", "Canje de 1.200 monedas por objetos transferibles", 1]]},
   {c: "C4", svc: "TrotaForo", ic: "🗺️", id: "hferrer06", kv: [["Verificación en dos pasos", "No disponible"], ["Recuperación", "Correo electrónico"], ["Contraseña cambiada", "12/03/2023"]], act: [["02/09 19:40", "Mensaje publicado en «Asia › Tailandia»"]],
-   alert: "Aviso público del 20/09/2026: un atacante accedió a la base de datos del foro. Se expusieron usuarios, correos y contraseñas (guardadas con un cifrado débil). Cuentas afectadas: 412.000."}
+   alert: "Aviso público del 20/09/2026: un atacante robó la base de datos del foro. Se filtraron los nombres de usuario, los correos y las contraseñas. Cuentas afectadas: 412.000."}
  ],
- lab: {svc: "Picto", user: "@hugo.ferrer.trips", q: "¿Cómo se llamaba tu primera mascota?", hash: "yjb7gr"},
-
- /* ---------- Misión 3 · Bandeja ---------- */
- inbox: [
-  {c: "M1", ch: "Correo", ic: "✈️", name: "SkyValdemora Reservas", addr: "reservas@skyvaldemora-cambios.com", sub: "Cambio en su vuelo SV0841", txt: "Estimado/a Sr. FERRER:\n\nSu vuelo de regreso asociado a la reserva K7Q4ZP ha sufrido un cambio operativo. Para conservar sus asientos debe confirmar los datos de pago en las próximas 24 horas.\n\nSi no confirma, la reserva será cancelada sin reembolso.", link: ["Confirmar mi reserva", "http://skyvaldemora-cambios.com/confirmar?loc=K7Q4ZP"]},
-  {c: "M2", ch: "Correo", ic: "📸", name: "Picto · Seguridad", addr: "seguridad@picto.app", sub: "Solicitud para restablecer tu contraseña", txt: "Hola, Hugo:\n\nHemos recibido una solicitud para restablecer la contraseña de @hugo.ferrer.trips desde Bucarest (Rumanía) el 25/10 a las 03:26.\n\nSi no fuiste tú, no tienes que hacer nada: la solicitud no se completó. Te recomendamos activar la verificación en dos pasos desde Ajustes > Seguridad en la app."},
-  {c: "M3", ch: "Correo", ic: "🗺️", name: "TrotaForo", addr: "avisos@trotaforo.com", sub: "Información importante sobre tu cuenta", txt: "Hola, hferrer06:\n\nEl pasado septiembre sufrimos un incidente de seguridad que expuso contraseñas de usuarios. Hemos restablecido la tuya.\n\nSi usabas la misma contraseña en otros servicios, cámbiala también allí cuanto antes. Puedes elegir una nueva desde la configuración de tu cuenta en nuestra web."},
-  {c: "M4", ch: "SMS", ic: "📦", name: "RapidEnvio", addr: "+44 7700 900 312", sub: "Paquete retenido", txt: "RapidEnvio: Tu paquete esta retenido en aduanas. Paga 1,99 EUR antes de hoy a las 23:59 o sera devuelto:", link: ["rapidenvio-aduana.top/pago", "http://rapidenvio-aduana.top/pago?id=HF2210"]}
- ],
-
- /* ---------- Misión 4 · Bienestar ---------- */
- wb: {days: [4.1, 3.8, 5.2, 6.9, 8.4, 7.6, 7.9], week: "Semana del 20 al 26 de octubre",
-  apps: [["Picto", 170], ["Mensajes", 70], ["Mapas", 40], ["PlayArena", 35], ["Cámara", 25]],
-  tiles: [["B3", "1 h 05 min", "de uso al día entre las 00:00 y las 07:00"], ["B4", "236", "notificaciones al día (118 de Picto)"], ["B5", "11", "publicaciones en directo en 4 días de viaje"]]}
+ lab: {svc: "Picto", user: "@hugo.ferrer.trips", q: "¿Cómo se llamaba tu primera mascota?", hash: "yjb7gr"}
 };

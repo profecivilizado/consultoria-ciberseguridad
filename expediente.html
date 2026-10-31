@@ -12,7 +12,6 @@
 <body>
 <main class="wrap" id="view"></main>
 <script src="datos/hugo.js"></script>
-<script src="datos/lucia.js"></script>
 <script src="datos/dani.js"></script>
 <script src="js/comun.js"></script>
 <script>
@@ -25,7 +24,7 @@ if (!id) { setCrumb([]); noCase(); } else {
  <dl><dt>Edad</dt><dd>${c.age} años</dd><dt>Estudios</dt><dd>${esc(c.study)}</dd><dt>Usuario conocido</dt><dd>${c.nick}</dd></dl></div></section>`;
  const card = m => `<div class="mcard2 panel"><div class="top"><span class="num">${m.n}</span><div><h3>${m.t}</h3><span class="small">${m.sub} · apartado ${m.tema}</span></div></div>
   <div class="mtools">${m.tools.map((k, j) => `<a href="${k}.html#${id}">${m.tools.length > 1 ? (j + 1) + ". " : ""}${TOOLS[k].name} ›</a>`).join("")}</div></div>`;
- html += `<p class="notice" style="margin:0 0 16px">Tenéis <b>4 sesiones</b> para completar las misiones y entregar el informe. Organizad vuestro ritmo, pero hacedlas en orden: cada misión usa lo que encontrasteis en las anteriores.</p>`;
+ html += `<p class="notice" style="margin:0 0 16px">Tenéis <b>4 sesiones</b> para completar las dos misiones y entregar el informe. Id a vuestro ritmo, pero en orden: algunas respuestas de la misión 2 están en la misión 1.</p>`;
  html += `<div class="mlist">${MISIONES.map(card).join("")}<div class="mcard2 panel"><div class="top"><span class="num">✎</span><div><h3>Informe de auditoría</h3><span class="small">Plantilla, entrega y evaluación</span></div></div><div class="mtools"><a href="informe.html#${id}">Abrir el informe ›</a></div></div></div>`;
  $("#view").innerHTML = html;
  window.addEventListener("hashchange", () => location.reload());

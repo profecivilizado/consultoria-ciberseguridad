@@ -2,35 +2,16 @@
 
 /* =================== MISIONES Y HERRAMIENTAS =================== */
 const MISIONES = [
- {n: 1, t: "Investiga a la persona", sub: "Huella digital, redes sociales y metadatos", tema: "3.1", tools: ["cybersearch", "picto", "archivos"],
-  task: c => [
-   `Elaborad la ficha de ${c.short}: todo lo que se puede saber de su vida (dónde vive, rutinas, estudios o trabajo, familia, gustos…) y de qué evidencia sale cada dato.`,
-   "Señalad los riesgos y clasificadlos: seguridad física, privacidad, reputación o privacidad de terceros. Indicad también qué evidencias son huella pasiva y cuáles no suponen ningún riesgo.",
-   "¿Qué descubrís al cruzar evidencias que no se ve en ninguna por separado?"]},
- {n: 2, t: "Sus cuentas", sub: "Contraseñas y autenticación", tema: "3.2", tools: ["cuentas"],
-  task: c => [
-   `Contad qué ha pasado en las cuentas de ${c.short}, separando hechos comprobados, indicios y lo que no se puede confirmar.`,
-   "Prueba de recuperación: ¿lo habéis conseguido? ¿Con qué evidencias de la misión 1?",
-   "¿Qué papel han tenido la reutilización de contraseñas y la verificación en dos pasos?"]},
- {n: 3, t: "Sus mensajes", sub: "Ingeniería social y fraude", tema: "3.3 · 3.5", tools: ["bandeja"],
-  task: c => [
-   "Clasificad cada mensaje como legítimo o fraudulento y señalad las pistas que os lo indican.",
-   `En los fraudes, ¿qué dato público de ${c.short} los hace creíbles? Citad la evidencia de la misión 1.`,
-   `¿Qué debería hacer ${c.short} si ya hubiera caído en alguno?`]},
- {n: 4, t: "Plan de protección", sub: "Bienestar digital y medidas", tema: "3.4", tools: ["bienestar"],
-  task: c => [
-   `¿Qué hábitos de uso del móvil de ${c.short} facilitan los riesgos que habéis encontrado?`,
-   "Plan de protección: cinco medidas ordenadas por prioridad, cada una con la evidencia o el riesgo que resuelve."]}
+ {n: 1, t: "Investiga a la persona", sub: "Huella digital, redes sociales y metadatos", tema: "3.1", tools: ["cybersearch", "picto", "archivos"]},
+ {n: 2, t: "Sus cuentas", sub: "Contraseñas y autenticación", tema: "3.2", tools: ["cuentas"]}
 ];
 const TOOLS = {
- cybersearch: {name: "CyberSearch", m: 1, code: "H", intro: c => `Buscad a ${c.short} en Internet. Empezad por su nombre de usuario, <b>${c.nick}</b>, y probad después con cualquier dato nuevo que encontréis.`},
- picto: {name: "Picto", m: 1, code: "R", intro: c => `Revisad el perfil de ${c.short} en Picto. Abrid cada publicación: la imagen, el texto, la ubicación, la fecha y los comentarios cuentan.`},
- archivos: {name: "Archivos", m: 1, code: "A", intro: c => `Os han facilitado algunos archivos originales de ${c.short}. Seleccionad cada uno y mirad lo que no se ve a simple vista.`},
- cuentas: {name: "Panel de cuentas", m: 2, code: "C", intro: c => `Estas son las cuentas de ${c.short}. Fijaos en las fechas, en cómo se recupera cada cuenta y en la actividad reciente. Después, haced la prueba de recuperación.`},
- bandeja: {name: "Bandeja de entrada", m: 3, code: "M", intro: c => `${c.short} ha recibido estos mensajes. Algunos son legítimos y otros no. Mirad el remitente completo y adónde lleva cada enlace.`},
- bienestar: {name: "Bienestar digital", m: 4, code: "B", intro: c => `Así usa ${c.short} el móvil. No se trata de contar horas, sino de ver cómo afecta a su descanso y a su seguridad.`}
+ cybersearch: {name: "CyberSearch", m: 1, code: "H", intro: c => `Buscad a ${c.short} en Internet. Escribid en el buscador su nombre de usuario, <b>${c.nick}</b>, y abrid cada resultado.`},
+ picto: {name: "Picto", m: 1, code: "R", intro: c => `Buscad a ${c.short} en la red social Picto. Cuidado: hay varias personas con nombres parecidos. Cuando encontréis su cuenta, pulsad en cada publicación y leed el texto, la ubicación, la fecha y los comentarios.`},
+ archivos: {name: "Archivos", m: 1, code: "A", intro: c => `Estos son algunos archivos originales de ${c.short}. Pulsad en cada uno para ver sus propiedades (los metadatos).`},
+ cuentas: {name: "Panel de cuentas", m: 2, code: "C", intro: c => `Estas son las cuentas de ${c.short}. Leed cada tarjeta y fijaos especialmente en las líneas en rojo.`}
 };
-const ORDER = ["cybersearch", "picto", "archivos", "cuentas", "bandeja", "bienestar"];
+const ORDER = ["cybersearch", "picto", "archivos", "cuentas"];
 
 /* =================== UTILIDADES =================== */
 const $ = s => document.querySelector(s);
@@ -79,10 +60,10 @@ function toolPage(key, render) {
  const tabs = m.tools.length > 1 ? `<nav class="tooltabs" aria-label="Herramientas de la misión ${m.n}">${m.tools.map((k, j) => `<a href="${k}.html#${id}"${k === key ? ' aria-current="page"' : ""}><b>${j + 1}</b>${TOOLS[k].name}</a>`).join("")}</nav>` : "";
  $("#view").innerHTML = `<section class="mhead"><span class="eyebrow">Expediente ${c.no} · ${c.name} · Misión ${m.n}: ${m.t}</span>
   ${tabs}<h1>${t.name}</h1>
-  <div class="tags"><span>${m.sub}</span><span>Tema 3 · ${m.tema}</span><span>Misión ${m.n} de 4</span><span>Evidencias ${t.code}</span></div>
+  <div class="tags"><span>${m.sub}</span><span>Tema 3 · ${m.tema}</span><span>Misión ${m.n} de 2</span><span>Evidencias ${t.code}</span></div>
   <p class="lead" style="color:var(--ink)">${t.intro(c)}</p></section>
   <div class="env" id="env"></div>
-  <section class="task panel"><h2>Para vuestro informe · misión ${m.n}</h2>${m.tools.length > 1 ? `<p class="small" style="margin:0 0 8px">Estas preguntas son para toda la misión: completad las ${m.tools.length} herramientas antes de responder.</p>` : ""}<ol>${m.task(c).map(x => `<li>${x}</li>`).join("")}</ol></section>
+  <section class="task panel"><h2>Preguntas guiadas · ${t.name}</h2><p class="small" style="margin:0 0 8px">Respondedlas en orden mientras exploráis: las respuestas van en vuestro informe.</p><ol>${c.preg[key].map(x => `<li>${x}</li>`).join("")}</ol></section>
   <nav class="mnav">${prev ? `<a class="btn ghost" href="${prev}.html#${id}">‹ ${TOOLS[prev].name}</a>` : `<a class="btn ghost" href="expediente.html#${id}">‹ Expediente</a>`}
   ${next ? `<a class="btn" href="${next}.html#${id}">${TOOLS[next].m !== t.m ? `Misión ${TOOLS[next].m}: ` : ""}${TOOLS[next].name} ›</a>` : `<a class="btn" href="informe.html#${id}">Informe final ›</a>`}</nav>`;
  render(c, id, $("#env"));

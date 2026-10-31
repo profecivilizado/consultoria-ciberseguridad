@@ -15,35 +15,33 @@ Web publicada: `https://profecivilizado.github.io/consultoria-ciberseguridad/`
 | Archivo | Qué es |
 | --- | --- |
 | `index.html` | Portada: elegir expediente |
-| `expediente.html` | Ficha del caso y las 4 misiones |
+| `expediente.html` | Ficha del caso y las 2 misiones |
 | `cybersearch.html` | Misión 1 · buscador |
-| `picto.html` | Misión 1 · red social |
+| `picto.html` | Misión 1 · red social (con buscador y cuentas señuelo) |
 | `archivos.html` | Misión 1 · metadatos |
 | `cuentas.html` | Misión 2 · cuentas y prueba de recuperación |
-| `bandeja.html` | Misión 3 · mensajes |
-| `bienestar.html` | Misión 4 · uso del móvil |
 | `informe.html` | Plantilla del informe, entrega y evaluación |
-| `datos/hugo.js`, `lucia.js`, `dani.js` | Todo el contenido de cada personaje. Para cambiar un texto, se edita aquí |
+| `datos/hugo.js`, `dani.js` | Todo el contenido de cada personaje, incluidas las preguntas guiadas. Para cambiar un texto, se edita aquí |
 | `js/comun.js`, `css/comun.css` | Código y estilo compartidos |
 | `img/` | Fotos ya preparadas |
 | `originales/` | Tus fotos sin preparar (no hace falta subirlas) |
 | `metadatos.py` | Prepara las fotos |
 
-Cada página recibe el personaje después de `#`: `picto.html#hugo`, `cuentas.html#lucia`…
+Cada página recibe el personaje después de `#`: `picto.html#hugo`, `cuentas.html#dani`…
 
-## Fotos (opcionales)
+## Fotos
 
-Sin fotos, la web muestra recuadros con un icono y funciona igual. Si quieres ponerlas, son 14 fotos de ambiente (sin pistas; Pexels o Unsplash sirven, mejor sin caras reconocibles):
+Ya están en `img/`. Si quieres cambiar alguna, son fotos de ambiente (sin pistas):
 
-| Hugo | Lucía | Dani |
-| --- | --- | --- |
-| hugo-1 · playa tropical | lucia-1 · carrera popular | dani-1 · escritorio gamer con LED |
-| hugo-2 · portal de noche | lucia-2 · café con arte latte | dani-2 · husky en un sofá |
-| hugo-3 · guía de viaje | lucia-3 · calle desde un balcón al amanecer | dani-3 · skatepark |
-| hugo-4 · perro en un parque | lucia-4 · gata en un sofá | dani-4 · consola portátil |
-| hugo-5 · tarta de cumpleaños | lucia-5 · tortitas | |
+| Hugo | Dani |
+| --- | --- |
+| hugo-1 · playa tropical | dani-1 · escritorio gamer con LED |
+| hugo-2 · portal de noche | dani-2 · husky cachorro |
+| hugo-3 · mapa de viaje | dani-3 · skatepark |
+| hugo-4 · perro en un parque | dani-4 · consola portátil |
+| hugo-5 · tarta de cumpleaños | |
 
-Y, si quieres, `hugo-avatar`, `lucia-avatar` y `dani-avatar` para las fotos de perfil.
+Y, si quieres, `hugo-avatar` y `dani-avatar` para las fotos de perfil.
 
 Cópialas en `originales/` con esos nombres (vale .jpg, .png o .webp) y ejecuta:
 
