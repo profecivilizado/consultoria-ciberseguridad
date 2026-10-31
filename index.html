@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Operación Lupa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/comun.css">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<main class="wrap" id="view"></main>
+<script src="datos/hugo.js"></script>
+<script src="datos/lucia.js"></script>
+<script src="datos/dani.js"></script>
+<script src="js/comun.js"></script>
+<script>
+chrome(); setCrumb([]);
+$("#view").innerHTML = `<section class="hero"><span class="eyebrow">P4 · Consultoría de Ciberseguridad</span>
+<h1>Tres expedientes. Cuatro misiones. Un informe de auditoría.</h1>
+<p class="lead">La dirección del centro os ha contratado como consultores de ciberseguridad. Cada equipo investiga el caso de una persona que sospecha que su identidad digital está comprometida. Examinad las evidencias, relacionadlas y justificad vuestras conclusiones con los contenidos del Tema 3.</p>
+<div class="notice"><b>Antes de empezar:</b> no todas las evidencias indican un problema. Parte del trabajo consiste en distinguir los riesgos reales, los indicios y lo que no se puede confirmar.</div></section>
+<h2 style="font-size:20px">Elegid el expediente asignado</h2>
+<div class="cases">${Object.entries(CASOS).map(([id, c]) => `<a class="case panel" href="expediente.html#${id}">${avatar(id, 1)}<span class="no">EXPEDIENTE ${c.no}</span><h2>${c.name}</h2><p>${esc(c.hook)}</p><span class="go">Abrir expediente ›</span></a>`).join("")}</div>
+<div class="homegrid"><section><h2 style="font-size:20px">Cómo se trabaja</h2><div class="steps">
+ <div><b>1. Investigad</b>Haced las misiones en orden: cada una usa lo que encontrasteis en las anteriores.</div>
+ <div><b>2. Anotad</b>Cada evidencia lleva un código amarillo, como ${ev("R3")}. Apuntad los códigos en vuestras notas.</div>
+ <div><b>3. Justificad</b>Cada conclusión debe apoyarse en una evidencia y cada medida debe decir qué problema resuelve.</div>
+ <div><b>4. Entregad</b>Cuando terminéis las misiones, completad el informe con la plantilla. <a href="informe.html">Ver el informe</a>.</div></div></section></div>`;
+</script>
+</body>
+</html>

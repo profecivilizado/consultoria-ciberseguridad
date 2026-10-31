@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Expediente · Operación Lupa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/comun.css">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<main class="wrap" id="view"></main>
+<script src="datos/hugo.js"></script>
+<script src="datos/lucia.js"></script>
+<script src="datos/dani.js"></script>
+<script src="js/comun.js"></script>
+<script>
+chrome();
+const id = caseId();
+if (!id) { setCrumb([]); noCase(); } else {
+ const c = CASOS[id]; document.title = `Expediente ${c.no} · Operación Lupa`;
+ setCrumb([[`Expediente ${c.no}`]]);
+ let html = `<section class="file panel">${avatar(id)}<div class="meta"><span class="eyebrow">Expediente ${c.no} · La identidad expuesta</span><h1 style="font-size:28px">${c.name}</h1><p style="margin:0">${esc(c.situation)}</p>
+ <dl><dt>Edad</dt><dd>${c.age} años</dd><dt>Estudios</dt><dd>${esc(c.study)}</dd><dt>Usuario conocido</dt><dd>${c.nick}</dd></dl></div></section>`;
+ const card = m => `<div class="mcard2 panel"><div class="top"><span class="num">${m.n}</span><div><h3>${m.t}</h3><span class="small">${m.sub} · apartado ${m.tema}</span></div></div>
+  <div class="mtools">${m.tools.map((k, j) => `<a href="${k}.html#${id}">${m.tools.length > 1 ? (j + 1) + ". " : ""}${TOOLS[k].name} ›</a>`).join("")}</div></div>`;
+ html += `<p class="notice" style="margin:0 0 16px">Tenéis <b>4 sesiones</b> para completar las misiones y entregar el informe. Organizad vuestro ritmo, pero hacedlas en orden: cada misión usa lo que encontrasteis en las anteriores.</p>`;
+ html += `<div class="mlist">${MISIONES.map(card).join("")}<div class="mcard2 panel"><div class="top"><span class="num">✎</span><div><h3>Informe de auditoría</h3><span class="small">Plantilla, entrega y evaluación</span></div></div><div class="mtools"><a href="informe.html#${id}">Abrir el informe ›</a></div></div></div>`;
+ $("#view").innerHTML = html;
+ window.addEventListener("hashchange", () => location.reload());
+}
+</script>
+</body>
+</html>

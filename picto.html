@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Picto · Operación Lupa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/comun.css">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<main class="wrap" id="view"></main>
+<script src="datos/hugo.js"></script>
+<script src="datos/lucia.js"></script>
+<script src="datos/dani.js"></script>
+<script src="js/comun.js"></script>
+<script>
+function postMedia(c, p) { return p.shot ? SHOT(p.shot[0], p.shot[1]) : photo(p.img + ".jpg", p.ph, (c.h + parseInt(p.c.slice(1)) * 41) % 360); }
+toolPage("picto", (c, id, el) => {
+ const p = c.pic;
+ el.innerHTML = `<div class="picto panel"><div class="ptop"><span class="plogo">pict<b>o</b></span><span style="flex:1"></span><b style="font-size:14px">@${c.picto}</b></div>
+ <div class="prof"><div class="prow">${avatar(id)}<div class="stats"><div><b>${p.posts}</b><span>publicaciones</span></div><div><b>${p.fol}</b><span>seguidores</span></div><div><b>${p.seg}</b><span>seguidos</span></div></div></div>
+ <div class="bio"><b>${c.name}</b>${esc(p.bio)}</div><div class="small">🌐 Cuenta pública</div>
+ <div class="hl">${p.hl.map(h => `<div><i>${h[0]}</i>${h[1]}</div>`).join("")}</div></div>
+ <div class="grid">${p.feed.map((q, i) => `<button class="tile" data-i="${i}" aria-label="Publicación ${q.c}">${ev(q.c)}${postMedia(c, q)}</button>`).join("")}</div></div>
+ <div class="acct panel" style="max-width:560px;margin:14px auto 0"><div class="top"><span class="ic">⚙️</span><div class="nm"><b>Ajustes de privacidad</b><span>Vista de la auditoría · @${c.picto}</span></div>${ev(p.priv.c)}</div>${p.priv.rows.map(r => `<div class="toggle"><span>${r[0]}</span><span>${r[1]}</span></div>`).join("")}</div>`;
+ el.querySelectorAll(".tile").forEach(b => b.onclick = () => { const q = p.feed[b.dataset.i];
+  openSheet(`<div class="hd">${ev(q.c)}${avatar(id, 1)}<div class="who"><b>${c.picto}</b>${q.loc ? `<small>📍 ${esc(q.loc)}</small>` : ""}</div>${X}</div>
+  <div class="big">${postMedia(c, q)}</div><div class="pb"><div class="acts">♡ 💬 ↗</div>${q.likes ? `<b>${q.likes.toLocaleString("es-ES")} me gusta</b>` : ""}
+  ${q.cap ? `<div class="cap"><b class="u">${c.picto}</b>${esc(q.cap)}</div>` : ""}${q.cm.map(x => `<div><b class="u">${esc(x[0])}</b>${esc(x[1])}</div>`).join("")}
+  <div class="when">${q.date}</div></div>`, "Publicación " + q.c); });
+});
+</script>
+</body>
+</html>

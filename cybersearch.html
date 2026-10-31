@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CyberSearch · Operación Lupa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/comun.css">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<main class="wrap" id="view"></main>
+<script src="datos/hugo.js"></script>
+<script src="datos/lucia.js"></script>
+<script src="datos/dani.js"></script>
+<script src="js/comun.js"></script>
+<script>
+toolPage("cybersearch", (c, id, el) => {
+ el.innerHTML = `<div class="search panel"><div class="slogo">Cyber<span>Search</span></div>
+ <form class="sbox" id="sf" role="search"><input id="q" type="search" placeholder="Buscar en Internet…" aria-label="Buscar" autocomplete="off"><button class="btn" type="submit">Buscar</button></form>
+ <div id="res" class="res"><p class="empty">Escribid el nombre de usuario y pulsad Buscar. Si descubrís otro dato (un nombre completo, un correo…), probadlo también.</p></div></div>
+ <div class="panel" style="margin-top:14px;padding:14px"><div style="display:flex;gap:8px;align-items:center;margin-bottom:6px">${ev(c.log.c)}<h3 style="font-size:17px">Registro técnico aportado por la auditoría</h3></div>
+ <p class="small" style="margin:0 0 8px">Este registro no aparece en buscadores: lo genera un servicio cada vez que ${c.short} se conecta.</p>
+ <div class="log"><table>${c.log.rows.map(r => `<tr><td>${r[0]}</td><td>${esc(r[1])}</td></tr>`).join("")}</table></div></div>`;
+ $("#sf").addEventListener("submit", e => {
+  e.preventDefault();
+  const q = $("#q").value.trim().toLowerCase().replace(/^@/, ""), out = $("#res");
+  if (!q) { out.innerHTML = `<p class="empty">Escribid algo para buscar.</p>`; return; }
+  const hit = c.search.q.some(k => q === k || (q.length >= 4 && k.includes(q) && q.length >= k.length - 3));
+  out.innerHTML = hit ? `<p class="empty">Resultados para «${esc(q)}»</p>` + c.search.res.map((r, i) => `<button class="r" data-i="${i}"><span class="u">${esc(r.u)}</span><span class="t">${esc(r.t)}</span><span class="s">${esc(r.s)}</span><span>${ev(r.c)}</span></button>`).join("")
+   : `<p class="empty">No hay resultados para «${esc(q)}». Revisad cómo está escrito o probad con otro dato.</p>`;
+  out.querySelectorAll(".r").forEach(b => b.onclick = () => { const r = c.search.res[b.dataset.i];
+   openSheet(`<div class="hd"><span class="ev">${r.c}</span><div class="who">${esc(r.t)}<small>${esc(r.u)}</small></div>${X}</div><div class="site">${r.page}</div>`, r.t); });
+ });
+});
+</script>
+</body>
+</html>

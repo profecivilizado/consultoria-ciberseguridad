@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Archivos · Operación Lupa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/comun.css">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<main class="wrap" id="view"></main>
+<script src="datos/hugo.js"></script>
+<script src="datos/lucia.js"></script>
+<script src="datos/dani.js"></script>
+<script src="js/comun.js"></script>
+<script>
+const ICON = {jpg: "🖼️", docx: "📄", png: "🖼️", pdf: "📕", gpx: "🧭", mp4: "🎞️"};
+async function detail(c, f, box) {
+ const head = `<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${ev(f.c)}<h3 style="font-size:18px;font-family:var(--mono);font-weight:500;word-break:break-all">${f.name}</h3></div>`;
+ if (f.kind !== "jpg") {
+  box.innerHTML = head + `<p class="small" style="margin:0">Propiedades del archivo</p><table class="ptable">${f.props.map(r => `<tr><td>${r[0]}</td><td>${esc(r[1])}</td></tr>`).join("")}</table>${f.gps ? gpsBlock(f.gps) : ""}`; return;
+ }
+ const prev = `<div class="fprev">${photo(f.name, f.ph, (c.h + 60) % 360)}</div>`;
+ box.innerHTML = head + prev + `<p class="small" style="margin:0">${esc(f.note)} · leyendo metadatos…</p>`;
+ let meta = Object.assign({}, c.meta[f.name]);
+ try { const r = await readExif("img/" + f.name); if (r && (r.model !== "—" || r.date !== "—")) meta = r; } catch (e) {}
+ const rows = [["Fabricante", meta.make], ["Modelo del dispositivo", meta.model], ["Fecha y hora de la toma", meta.date], ["Software", meta.soft || "—"], ["Ubicación (GPS)", meta.gps ? `${meta.gps[0].toFixed(5)}, ${meta.gps[1].toFixed(5)}` : "No contiene"]];
+ box.innerHTML = head + prev + `<p class="small" style="margin:0">${esc(f.note)}</p>
+  <table class="ptable">${rows.map(r => `<tr><td>${r[0]}</td><td>${esc(r[1])}</td></tr>`).join("")}</table>${gpsBlock(meta.gps)}
+  <a class="btn ghost" href="img/${f.name}" download="${f.name}" style="justify-self:start">Descargar el original</a>`;
+}
+toolPage("archivos", (c, id, el) => {
+ el.innerHTML = `<div class="fx panel"><div class="flist">${c.files.map((f, i) => `<button class="fitem" data-i="${i}"><span class="fi">${ICON[f.kind]}</span><span style="min-width:0;flex:1"><b>${f.name}</b><small>${f.kind.toUpperCase()}</small></span>${ev(f.c)}</button>`).join("")}</div><div class="fdet" id="fd"></div></div>`;
+ const show = i => { el.querySelectorAll(".fitem").forEach((b, j) => b.setAttribute("aria-current", i === j)); detail(c, c.files[i], $("#fd")); };
+ el.querySelectorAll(".fitem").forEach(b => b.onclick = () => show(+b.dataset.i)); show(0);
+});
+</script>
+</body>
+</html>

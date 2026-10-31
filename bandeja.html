@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bandeja de entrada · Operación Lupa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/comun.css">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<main class="wrap" id="view"></main>
+<script src="datos/hugo.js"></script>
+<script src="datos/lucia.js"></script>
+<script src="datos/dani.js"></script>
+<script src="js/comun.js"></script>
+<script>
+toolPage("bandeja", (c, id, el) => {
+ el.innerHTML = `<div class="panel inbox" style="max-width:640px">${c.inbox.map((m, i) => `<button class="msg" data-i="${i}"><span class="ic">${m.ic}</span><span class="t"><span class="ch">${m.ch}</span><b>${esc(m.name)}</b><span>${esc(m.sub)}</span></span>${ev(m.c)}</button>`).join("")}</div>`;
+ el.querySelectorAll(".msg").forEach(b => b.onclick = () => { const m = c.inbox[b.dataset.i];
+  openSheet(`<div class="hd">${ev(m.c)}<div class="who"><b>${esc(m.sub)}</b><small>${m.ch}</small></div>${X}</div>
+  <div class="mview"><div class="from"><b>${esc(m.name)}</b><button class="linkish" id="sd">Ver remitente completo</button><div class="addr" id="ad" hidden>${esc(m.addr)}</div></div>
+  <div class="txt">${esc(m.txt)}${m.link ? `\n\n<button class="linkish" id="lk" style="font-size:14.5px">${esc(m.link[0])}</button>` : ""}${m.audio ? `<div class="audio">▶<span class="wave"></span>${esc(m.audio)}</div>` : ""}</div>
+  ${m.link ? `<div class="dest" id="dest" hidden><small>Destino real del enlace (en esta simulación los enlaces no se abren):</small>${esc(m.link[1])}</div>` : ""}</div>`, "Mensaje " + m.c);
+  $("#sd").onclick = () => { $("#ad").hidden = false; $("#sd").remove(); };
+  const lk = $("#lk"); if (lk) lk.onclick = () => { $("#dest").hidden = false; };
+ });
+});
+</script>
+</body>
+</html>

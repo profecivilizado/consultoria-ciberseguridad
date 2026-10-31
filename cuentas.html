@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panel de cuentas · Operación Lupa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/comun.css">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+</head>
+<body>
+<main class="wrap" id="view"></main>
+<script src="datos/hugo.js"></script>
+<script src="datos/lucia.js"></script>
+<script src="datos/dani.js"></script>
+<script src="js/comun.js"></script>
+<script>
+toolPage("cuentas", (c, id, el) => {
+ const card = a => `<div class="acct panel"${a.alert ? ' style="border-color:var(--alert)"' : ""}><div class="top"><span class="ic">${a.ic}</span><div class="nm"><b>${a.svc}</b><span>${esc(a.id)}</span></div>${ev(a.c)}</div>
+  <dl class="kv">${a.kv.map(k => `<dt>${k[0]}</dt><dd>${esc(k[1])}</dd>`).join("")}</dl>
+  <div class="actv"><span class="eyebrow" style="font-size:11px">Actividad reciente</span>${a.act.map(r => `<div><time>${r[0]}</time><span${r[2] ? ' class="warn"' : ""}>${esc(r[1])}</span></div>`).join("")}</div>
+  ${a.alert ? `<p style="margin:0;font-size:13.5px;color:var(--alert)">⚠️ ${esc(a.alert)}</p>` : ""}</div>`;
+ el.innerHTML = `<div class="acc">${c.acc.map(card).join("")}</div>
+ <section class="lab panel"><span class="eyebrow">Prueba de recuperación autorizada</span><h3>¿Podría un atacante recuperar la cuenta de ${c.lab.svc}?</h3>
+ <p style="margin:0;font-size:14px">${c.short} os autoriza a probar el formulario «He olvidado mi contraseña» de <b>${esc(c.lab.user)}</b>. No hay límite de intentos.</p>
+ <div class="txt" style="font-size:14px"><b>Pregunta de seguridad:</b> ${esc(c.lab.q)}</div>
+ <form id="lf"><input id="la" placeholder="Respuesta" aria-label="Respuesta a la pregunta de seguridad" autocomplete="off"><button class="btn" type="submit">Comprobar</button></form>
+ <div class="out" id="lo" aria-live="polite"></div></section>`;
+ let tries = 0;
+ $("#lf").addEventListener("submit", e => {
+  e.preventDefault(); tries++; const o = $("#lo"), v = $("#la").value;
+  if (!v.trim()) { o.className = "out bad"; o.textContent = "Escribid una respuesta."; return; }
+  if (hz(v) === c.lab.hash) { o.className = "out good"; o.textContent = `Respuesta correcta en ${tries} intento${tries > 1 ? "s" : ""}. ${c.lab.svc} os deja crear una contraseña nueva: un atacante habría tomado el control de la cuenta. Anotad de qué evidencias sacasteis la respuesta.`; }
+  else { o.className = "out bad"; o.textContent = `Respuesta incorrecta (intento ${tries}). Revisad las evidencias de la misión 1.`; }
+ });
+});
+</script>
+</body>
+</html>
