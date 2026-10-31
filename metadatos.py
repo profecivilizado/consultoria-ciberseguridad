@@ -45,8 +45,8 @@ FOTOS = {
     "lucia-5": ("2026:09:28 09:30:12", None, None),           # tortitas
     "dani-1": ("2026:10:20 19:27:33", 39.41000, -13.21700),   # setup = su casa
     "dani-2": ("2026:10:14 17:58:12", None, None),            # husky
-    "dani-3": ("2026:10:05 17:44:09", None, None),            # bufanda
-    "dani-4": ("2026:09:30 22:10:00", None, None),            # videojuego
+    "dani-3": ("2026:10:05 17:44:09", None, None),            # skatepark
+    "dani-4": ("2026:09:30 22:10:00", None, None),            # consola
 }
 
 

@@ -39,8 +39,8 @@ Sin fotos, la web muestra recuadros con un icono y funciona igual. Si quieres po
 | --- | --- | --- |
 | hugo-1 · playa tropical | lucia-1 · carrera popular | dani-1 · escritorio gamer con LED |
 | hugo-2 · portal de noche | lucia-2 · café con arte latte | dani-2 · husky en un sofá |
-| hugo-3 · guía de viaje | lucia-3 · calle desde un balcón al amanecer | dani-3 · bufanda de fútbol en una grada |
-| hugo-4 · perro en un parque | lucia-4 · gata en un sofá | dani-4 · pantalla de videojuego |
+| hugo-3 · guía de viaje | lucia-3 · calle desde un balcón al amanecer | dani-3 · skatepark |
+| hugo-4 · perro en un parque | lucia-4 · gata en un sofá | dani-4 · consola portátil |
 | hugo-5 · tarta de cumpleaños | lucia-5 · tortitas | |
 
 Y, si quieres, `hugo-avatar`, `lucia-avatar` y `dani-avatar` para las fotos de perfil.

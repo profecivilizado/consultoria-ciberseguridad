@@ -22,26 +22,26 @@ db_host=localhost
 db_user=daniortega
 db_password=Thor_2005!
 admin_email=dani.ortega.2005@valmail.es</pre>`},
-   {c: "H3", u: "gamerzone-foro.net › 2016 › futbol-sala", t: "¡El CEIP San Martín campeón de fútbol sala! — GamerZone Foro (2016)",
+   {c: "H3", u: "gamerzone-foro.net › 2016 › concurso-robotica", t: "¡El CEIP San Martín gana el concurso de robótica! — GamerZone Foro (2016)",
     s: "dani0rtega · «Somos los mejores!! Dani, 6.º B»",
     page: `<div class="sh">GamerZone Foro · Off-topic (2016)</div><div class="q"><b>dani0rtega</b> · 14 de mayo de 2016
-¡¡El CEIP San Martín campeón de fútbol sala!! Somos los mejores 🏆
+¡¡El CEIP San Martín ha ganado el concurso de robótica de Valdemora!! Somos los mejores 🤖🏆
 Dani, 6.º B</div><p class="small">Foro cerrado en 2019. El contenido sigue indexado.</p>`}
   ]},
  log: {c: "H4", rows: [["Servicio", "StreamZone (sesión propia de Dani)"], ["Fecha", "22/10/2026 · 00:12"], ["Dirección IP", "88.14.90.xxx (Valdenet Fibra)"], ["Ubicación aproximada", "Valdemora, España"], ["Dispositivo", "PC-DANI-STREAM · Windows 11 · OBS Studio"], ["Cookies de terceros", "22 (publicidad: hardware, apuestas deportivas, bebidas energéticas)"], ["Perfil publicitario deducido", "Gamer · 18-24 años · gasto alto en tecnología"]]},
 
  /* ---------- Misión 1 · Picto ---------- */
  pic: {
-  bio: "🎮 Streamer de andar por casa\n💙 Fan del Valdemora CF\n🔴 Directos martes y jueves 22:00", posts: 498, fol: "3.104", seg: "301",
-  hl: [["🔴", "Directos"], ["🐺", "Thor"], ["⚽", "VCF"], ["🖥️", "Setup"]],
+  bio: "🎮 Streamer de andar por casa\n🛹 Skater desde los 12\n🔴 Directos martes y jueves 22:00", posts: 498, fol: "3.104", seg: "301",
+  hl: [["🔴", "Directos"], ["🐺", "Thor"], ["🛹", "Skate"], ["🖥️", "Setup"]],
   feed: [
    {c: "R1", shot: ["notif"], date: "27 de octubre · 23:58", likes: 212, cap: "Si me llega otro código más me da algo 😤", cm: [["rubenx", "Eso no es normal bro"], ["dani.0rtega.gg", "Será un bug, paso"]]},
    {c: "R2", shot: ["stream"], date: "22 de octubre · 00:15", likes: 540, cap: "Gracias por los 3.000 🙏 Os espero en la comunidad", cm: [["moddeado", "Imparables 🔥"]]},
    {c: "R3", img: "dani-1", ph: ["🖥️", "Escritorio gamer"], date: "20 de octubre · 19:30", likes: 611, cap: "Setup terminado 🔥 Después de 2 años ahorrando", cm: [["rubenx", "¿Cuánto te ha costado todo? 😍"], ["dani.0rtega.gg", "Unos 3.000 pavos 💸"]]},
-   {c: "R4", img: "dani-2", ph: ["🐺", "Husky en el sofá"], date: "14 de octubre · 18:00", likes: 420, cap: "Thor cumple 9 años, mi compañero de directos 🐺", cm: []},
-   {c: "R5", img: "dani-3", ph: ["⚽", "Bufanda en la grada"], date: "5 de octubre · 17:45", loc: "Estadio Municipal de Valdemora", likes: 233, cap: "Mi número de siempre, el 5 💙 Socio del Valdemora CF desde que nací (2005)", cm: []},
+   {c: "R4", img: "dani-2", ph: ["🐺", "Husky en el sofá"], date: "14 de octubre · 18:00", likes: 420, cap: "Así era Thor de cachorro 🐺 Hoy cumple 9 años, mi compañero de directos", cm: [["rubenx", "¡Qué bicho más bonito! Felicidades, Thor"]]},
+   {c: "R5", img: "dani-3", ph: ["🛹", "Skatepark"], date: "5 de octubre · 17:45", loc: "Skatepark del Río, Valdemora", likes: 233, cap: "Mi sitio de siempre 🛹 Patinando aquí desde 2017, cuando tenía 12 años", cm: [["moddeado", "Los domingos por la tarde siempre está ahí jajaja"]]},
    {c: "R6", shot: ["quiz"], date: "25 de septiembre · 21:00", likes: 188, cap: "Retito rápido, a ver quién se anima 👇", cm: [["dani.0rtega.gg", "CEIP San Martín y Thor, obvio"], ["rubenx", "Los Pinos y Coco"]]},
-   {c: "R7", img: "dani-4", ph: ["🎮", "Pantalla de un videojuego"], date: "30 de septiembre · 22:10", likes: 156, cap: "Recomendación: este indie es una joya 🎮 10/10", cm: [["moddeado", "Me lo apunto"]]},
+   {c: "R7", img: "dani-4", ph: ["🎮", "Consola portátil"], date: "30 de septiembre · 22:10", likes: 156, cap: "Unas partidas en el sofá antes del directo 🎮", cm: [["moddeado", "Esta noche te reviento 😂"]]},
    {c: "R8", shot: ["old", {ctx: "Publicación de @dani.0rtega.gg en 2021, sigue visible", text: "«Las chicas no saben jugar a esto, que se vuelvan a los juegos de móvil 🤡»", date: "11 de febrero de 2021", rep: ["xX_lu_Xx (2026): Y este quiere ser streamer… 💀", "noe_vld (2026): Captura hecha 📸"]}], date: "11 de febrero de 2021", likes: 34, cap: "", cm: []}
   ],
   priv: {c: "R9", rows: [["Cuenta", "Pública"], ["Mostrar ubicación en publicaciones", "Solo si la añado"], ["Quién puede enviarte mensajes", "Cualquiera"], ["Verificación en dos pasos", "No"], ["Publicaciones antiguas archivadas", "Ninguna"]]}
