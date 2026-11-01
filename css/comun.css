@@ -251,10 +251,10 @@ footer{padding-block:20px 34px;font-size:12.5px;color:var(--muted);border-top:1p
 .tooltabs a[aria-current="page"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .tooltabs a[aria-current="page"] b{background:rgb(255 255 255 / .25)}
 .small{font-size:13px;color:var(--muted)}
-.mtools{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.mtools{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:flex-end;align-self:end}
 .mtools a{font-size:13.5px;padding:5px 11px;border-radius:999px;background:var(--surface-2);color:var(--ink);text-decoration:none;font-weight:500}
 .mtools a:hover{background:var(--accent);color:var(--accent-ink)}
-.mcard2{padding:16px;display:grid;gap:6px}
+.mcard2{padding:16px;display:grid;gap:6px;grid-template-rows:auto 1fr}
 .mcard2 .top{display:flex;gap:12px;align-items:baseline}
 .mcard2 .num{font-family:var(--display);font-weight:700;font-size:30px;color:var(--accent);line-height:1}
 .mcard2 h3{font-size:19px}
