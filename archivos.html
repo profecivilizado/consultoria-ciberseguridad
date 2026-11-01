@@ -13,9 +13,12 @@
 <main class="wrap" id="view"></main>
 <script src="datos/hugo.js"></script>
 <script src="datos/dani.js"></script>
+<script src="datos/nora.js"></script>
+<script src="datos/marcos.js"></script>
+<script src="datos/irene.js"></script>
 <script src="js/comun.js"></script>
 <script>
-const ICON = {jpg: "🖼️", docx: "📄", png: "🖼️", pdf: "📕", gpx: "🧭", mp4: "🎞️"};
+const ICON = {jpg: "🖼️", docx: "📄", png: "🖼️", pdf: "📕", gpx: "🧭", mp4: "🎞️", mp3: "🎵"};
 async function detail(c, f, box) {
  const head = `<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${ev(f.c)}<h3 style="font-size:18px;font-family:var(--mono);font-weight:500;word-break:break-all">${f.name}</h3></div>`;
  if (f.kind !== "jpg") {

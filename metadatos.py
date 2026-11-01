@@ -5,8 +5,9 @@ Uso:
   1. pip install pillow
   2. Guarda tus fotos en la carpeta "originales" con estos nombres
      (cualquier formato: .jpg, .png, .webp):
-       hugo-1 ... hugo-5, dani-1 ... dani-4
-       hugo-avatar, dani-avatar   (fotos de perfil, opcionales)
+       hugo-1 ... hugo-5, dani-1 ... dani-4, nora-1 ... nora-3,
+       marcos-1 ... marcos-3, irene-1 ... irene-3
+       hugo-avatar, dani-avatar...   (fotos de perfil, opcionales)
   3. python metadatos.py
   -> Deja cada foto en "img" como JPG cuadrado de 1080 px, sin los
      metadatos originales (los de la IA o los de tu móvil) y con la
@@ -28,6 +29,9 @@ LADO = 1080
 MOVIL = {
     "hugo": ("Apple", "iPhone 14"),
     "dani": ("Apple", "iPhone de Daniel Ortega"),  # el nombre del dispositivo es una pista
+    "nora": ("Apple", "iPhone 13"),
+    "marcos": ("samsung", "Galaxy S24"),
+    "irene": ("Xiaomi", "Redmi Note 14"),
 }
 
 # foto: (fecha y hora de la toma, latitud, longitud). None = sin GPS
@@ -41,6 +45,15 @@ FOTOS = {
     "dani-2": ("2026:10:14 17:58:12", None, None),            # husky
     "dani-3": ("2026:10:05 17:44:09", None, None),            # skatepark
     "dani-4": ("2026:09:30 22:10:00", None, None),            # consola
+    "nora-1": ("2026:10:20 18:31:07", 39.40500, -13.20300),   # mesa de dibujo = su casa
+    "nora-2": ("2026:10:08 21:10:44", None, None),            # gata
+    "nora-3": ("2026:09:28 16:52:10", None, None),            # cuaderno de bocetos
+    "marcos-1": ("2026:10:15 18:52:40", 39.41300, -13.21000), # guitarra = su casa
+    "marcos-2": ("2026:10:02 17:25:03", None, None),          # ukelele
+    "marcos-3": ("2026:09:20 10:11:30", None, None),          # partitura
+    "irene-1": ("2026:10:19 13:31:55", 39.41800, -13.20800),  # perro = protectora
+    "irene-2": ("2026:10:12 19:15:21", None, None),           # pueblo
+    "irene-3": ("2026:10:08 10:52:18", 39.40800, -13.21800),  # microscopio = facultad
 }
 
 

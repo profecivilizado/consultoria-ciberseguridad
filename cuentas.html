@@ -13,6 +13,9 @@
 <main class="wrap" id="view"></main>
 <script src="datos/hugo.js"></script>
 <script src="datos/dani.js"></script>
+<script src="datos/nora.js"></script>
+<script src="datos/marcos.js"></script>
+<script src="datos/irene.js"></script>
 <script src="js/comun.js"></script>
 <script>
 toolPage("cuentas", (c, id, el) => {
@@ -30,7 +33,7 @@ toolPage("cuentas", (c, id, el) => {
  $("#lf").addEventListener("submit", e => {
   e.preventDefault(); tries++; const o = $("#lo"), v = $("#la").value;
   if (!v.trim()) { o.className = "out bad"; o.textContent = "Escribid una respuesta."; return; }
-  if (hz(v) === c.lab.hash) { o.className = "out good"; o.textContent = `Respuesta correcta en ${tries} intento${tries > 1 ? "s" : ""}. ${c.lab.svc} os deja crear una contraseña nueva: un atacante habría tomado el control de la cuenta. Anotad de qué evidencias sacasteis la respuesta.`; }
+  if ([].concat(c.lab.hash).includes(hz(v))) { o.className = "out good"; o.textContent = `Respuesta correcta en ${tries} intento${tries > 1 ? "s" : ""}. ${c.lab.svc} os deja crear una contraseña nueva: un atacante habría tomado el control de la cuenta. Anotad de qué evidencias sacasteis la respuesta.`; }
   else { o.className = "out bad"; o.textContent = `Respuesta incorrecta (intento ${tries}). Revisad las evidencias de la misión 1.`; }
  });
 });

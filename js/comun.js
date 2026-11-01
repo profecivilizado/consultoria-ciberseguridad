@@ -153,11 +153,13 @@ function SHOT(kind, a) {
    <div><b style="font-size:18px">${two ? "7,4" : "8,02"} km</b><div style="font-size:11px;color:#6b7280">Distancia</div></div>
    <div><b style="font-size:18px">${two ? "38:10" : "41:37"}</b><div style="font-size:11px;color:#6b7280">Tiempo</div></div>
    <div><b style="font-size:18px">${two ? "5:09" : "5:11"}/km</b><div style="font-size:11px;color:#6b7280">Ritmo</div></div></div></div></div>`; }
- case "notif": return `<div class="shot dark" style="background:linear-gradient(160deg,#2a3550,#141820)"><div class="sc" style="display:flex;flex-direction:column;align-items:center">${bar(1)}
-  <div style="font-size:64px;font-weight:300;margin-top:18px;font-family:var(--display)">23:58</div><div style="font-size:14px;opacity:.8">martes, 27 de octubre</div>
+ case "notif": {
+  const n = a || {time: "23:58", day: "martes, 27 de octubre", lines: ["482 ███", "719 ███", "205 ███"].map(c => `StreamZone: tu código de verificación es ${c}. No lo compartas con nadie.`)};
+  return `<div class="shot dark" style="background:linear-gradient(160deg,#2a3550,#141820)"><div class="sc" style="display:flex;flex-direction:column;align-items:center">${bar(1)}
+  <div style="font-size:64px;font-weight:300;margin-top:18px;font-family:var(--display)">${n.time}</div><div style="font-size:14px;opacity:.8">${n.day}</div>
   <div style="width:88%;margin-top:26px;display:grid;gap:8px">
-   ${["482 ███", "719 ███", "205 ███"].map((c, i) => `<div style="background:rgb(255 255 255 / .14);border-radius:16px;padding:10px 12px;font-size:13px"><b>Mensajes</b> <span style="float:right;opacity:.7">hace ${i + 1} min</span><div>StreamZone: tu código de verificación es ${c}. No lo compartas con nadie.</div></div>`).join("")}
-  </div></div></div>`;
+   ${n.lines.map((c, i) => `<div style="background:rgb(255 255 255 / .14);border-radius:16px;padding:10px 12px;font-size:13px"><b>Notificaciones</b> <span style="float:right;opacity:.7">hace ${i + 1} min</span><div>${esc(c)}</div></div>`).join("")}
+  </div></div></div>`; }
  case "stream": return `<div class="shot dark"><div class="sc" style="display:grid;grid-template-rows:auto 1fr auto">
   <div style="display:flex;gap:8px;align-items:center;padding:10px 12px;font-size:13px"><span style="background:#e2533b;color:#fff;border-radius:4px;padding:1px 6px;font-weight:700">EN DIRECTO</span><b>dani0rtega</b><span style="opacity:.7">· 214 espectadores</span></div>
   <div style="background:linear-gradient(135deg,#253b5c,#4a2a5c);margin:0 12px;border-radius:10px;display:grid;place-items:center;position:relative;font-size:22px;font-weight:700;font-family:var(--display);text-align:center">🎉 3.000 SEGUIDORES 🎉
@@ -171,6 +173,27 @@ function SHOT(kind, a) {
    <div style="background:#fff;color:#111;font-weight:800;font-size:24px;padding:6px 12px;border-radius:6px;font-family:var(--display);transform:rotate(-3deg)">${esc(a.text)}</div>
    <div style="font-size:15px;opacity:.9">${esc(a.sub)}</div></div>
   <div style="text-align:center;font-size:12px;padding-bottom:10px;opacity:.8">${esc(a.foot)}</div></div></div>`;
+ case "card": return `<div class="shot" style="background:${a.bg || "#eef1f6"}"><div class="sc" style="display:grid;place-items:center;padding:22px">
+  <div style="background:#fff;border-radius:14px;width:100%;max-width:420px;box-shadow:0 6px 20px rgb(0 0 0 / .15);overflow:hidden;color:#16181d">
+   <div style="background:${a.color};color:#fff;padding:12px 16px;display:flex;justify-content:space-between;gap:8px;font-weight:700;letter-spacing:.05em;font-size:13px"><span>${esc(a.head)}</span><span>${esc(a.tag || "")}</span></div>
+   <div style="padding:14px 16px;display:grid;gap:9px;font-size:13px">${a.title ? `<div style="font-weight:700;font-size:18px">${esc(a.title)}</div>` : ""}
+    ${a.rows.map(r => `<div style="display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #eceff4;padding-bottom:5px"><span style="color:#6b7280">${esc(r[0])}</span><b style="text-align:right">${esc(r[1])}</b></div>`).join("")}
+    ${a.qr ? `<div style="display:flex;justify-content:center;padding-top:4px"><div style="width:96px;height:96px;background:repeating-conic-gradient(#16181d 0 25%,#fff 0 50%) 0 0/12px 12px;border:5px solid #16181d"></div></div>` : ""}
+    ${a.btn ? `<div style="background:${a.color};color:#fff;text-align:center;border-radius:9px;padding:9px;font-weight:700">${esc(a.btn)}</div>` : ""}
+   </div></div></div></div>`;
+ case "desk": return `<div class="shot" style="background:#2b2a33"><div class="sc" style="position:relative">
+  <div style="position:absolute;left:8%;right:8%;top:10%;height:52%;background:#111318;border:10px solid #3a3d46;border-radius:8px;display:grid;place-items:center;color:#7fa0d8;font-family:var(--mono);font-size:14px">🎚️ grabando · pista 3</div>
+  <div style="position:absolute;left:12%;top:16%;width:34%;padding:12px 10px;background:#ffe45c;color:#2a2200;font-family:'Comic Sans MS','Marker Felt',cursive;font-size:17px;line-height:1.3;transform:rotate(-4deg);box-shadow:0 4px 10px rgb(0 0 0 / .4)">${esc(a.note).replace(/\n/g, "<br>")}</div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(#6b4a2f,#4e3421)"></div>
+  <div style="position:absolute;left:30%;bottom:12%;width:40%;height:9%;background:#1d1f24;border-radius:6px"></div>
+  <div style="position:absolute;right:8%;bottom:14%;font-size:44px">🎸</div></div></div>`;
+ case "perm": return `<div class="shot" style="background:#e9edf5"><div class="sc" style="display:grid;place-items:center;padding:22px">
+  <div style="background:#fff;border-radius:16px;width:100%;max-width:400px;box-shadow:0 6px 20px rgb(0 0 0 / .18);padding:18px;color:#16181d;display:grid;gap:10px;font-size:14px">
+   <div style="display:flex;align-items:center;gap:10px"><div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#ff7a59,#b8399b);display:grid;place-items:center;font-size:22px">🧠</div><div><b>${esc(a.app)}</b><div style="font-size:12px;color:#6b7280">quiere acceder a tu cuenta de Picto</div></div></div>
+   <div style="font-size:13px;color:#6b7280">Esta aplicación podrá:</div>
+   ${a.perms.map(x => `<div style="display:flex;gap:8px"><span>✔️</span><span>${esc(x)}</span></div>`).join("")}
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px"><div style="text-align:center;padding:9px;border-radius:9px;background:#eef1f6">Cancelar</div><div style="text-align:center;padding:9px;border-radius:9px;background:#2f6fd6;color:#fff;font-weight:700">Permitir</div></div>
+  </div></div></div>`;
  case "old": return `<div class="shot" style="background:#fdfbf6"><div class="sc" style="display:flex;flex-direction:column;justify-content:center;gap:12px;padding:24px">
   <div style="font-size:12px;color:#6b7280">${esc(a.ctx)}</div>
   <div style="font-size:19px;line-height:1.4;font-weight:500">${esc(a.text)}</div>

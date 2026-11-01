@@ -16,12 +16,13 @@ Web publicada: `https://profecivilizado.github.io/consultoria-ciberseguridad/`
 | --- | --- |
 | `index.html` | Portada: elegir expediente |
 | `expediente.html` | Ficha del caso y las 2 misiones |
+| `ejemplo.html` | Informe de ejemplo resuelto (caso ficticio Leo Sanz) |
 | `cybersearch.html` | Misión 1 · buscador |
 | `picto.html` | Misión 1 · red social (con buscador y cuentas señuelo) |
 | `archivos.html` | Misión 1 · metadatos |
 | `cuentas.html` | Misión 2 · cuentas y prueba de recuperación |
 | `informe.html` | Plantilla del informe, entrega y evaluación |
-| `datos/hugo.js`, `dani.js` | Todo el contenido de cada personaje, incluidas las preguntas guiadas. Para cambiar un texto, se edita aquí |
+| `datos/hugo.js`, `dani.js`, `nora.js`, `marcos.js`, `irene.js` | Todo el contenido de cada personaje, incluidas las preguntas guiadas. Para cambiar un texto, se edita aquí |
 | `js/comun.js`, `css/comun.css` | Código y estilo compartidos |
 | `img/` | Fotos ya preparadas |
 | `originales/` | Tus fotos sin preparar (no hace falta subirlas) |
@@ -31,15 +32,13 @@ Cada página recibe el personaje después de `#`: `picto.html#hugo`, `cuentas.ht
 
 ## Fotos
 
-Ya están en `img/`. Si quieres cambiar alguna, son fotos de ambiente (sin pistas):
+Son fotos de ambiente (sin pistas). Las de Hugo y Dani ya están en `img/`. Para Nora, Marcos e Irene faltan estas; mientras no estén, la web muestra un recuadro con un icono:
 
-| Hugo | Dani |
-| --- | --- |
-| hugo-1 · playa tropical | dani-1 · escritorio gamer con LED |
-| hugo-2 · portal de noche | dani-2 · husky cachorro |
-| hugo-3 · mapa de viaje | dani-3 · skatepark |
-| hugo-4 · perro en un parque | dani-4 · consola portátil |
-| hugo-5 · tarta de cumpleaños | |
+| Nora | Marcos | Irene |
+| --- | --- | --- |
+| nora-1 · mesa de dibujo con ilustraciones | marcos-1 · guitarra eléctrica | irene-1 · perro en una protectora |
+| nora-2 · gata en una ventana | marcos-2 · ukelele | irene-2 · paisaje de un pueblo |
+| nora-3 · cuaderno de bocetos | marcos-3 · partitura | irene-3 · microscopio de laboratorio |
 
 Y, si quieres, `hugo-avatar` y `dani-avatar` para las fotos de perfil.
 
