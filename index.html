@@ -20,8 +20,8 @@
 <script>
 chrome(); setCrumb([]);
 $("#view").innerHTML = `<section class="hero"><span class="eyebrow">P4 · Consultoría de Ciberseguridad</span>
-<h1>Cinco expedientes. Dos misiones. Un informe de auditoría.</h1>
-<p class="lead">La dirección del centro os ha contratado como consultores de ciberseguridad. Cada uno investigará el caso de una persona que sospecha que su identidad digital está comprometida. Seguid las preguntas guiadas de cada herramienta, apuntad las evidencias y explicad qué ha pasado.</p>
+<h1>Cinco expedientes. Un informe de auditoría.</h1>
+<p class="lead">Nos han contratado como consultores de ciberseguridad. Investigararemos el caso de una persona que sospecha que su identidad digital está comprometida. Seguid las preguntas guiadas de cada herramienta, apuntad las evidencias y explicad qué ha pasado.</p>
 <div class="notice"><b>Antes de empezar:</b> no todas las evidencias indican un problema. Algunas publicaciones y archivos son completamente normales, y detectarlos también cuenta.</div></section>
 <h2 style="font-size:20px">Elegid el expediente asignado</h2>
 <div class="cases">${Object.entries(CASOS).map(([id, c]) => `<a class="case panel" href="expediente.html#${id}">${avatar(id, 1)}<span class="no">EXPEDIENTE ${c.no}</span><h2>${c.name}</h2><p>${esc(c.hook)}</p><span class="go">Abrir expediente ›</span></a>`).join("")}</div>
