@@ -32,13 +32,13 @@ Cada página recibe el personaje después de `#`: `picto.html#hugo`, `cuentas.ht
 
 ## Fotos
 
-Son fotos de ambiente (sin pistas). Las de Hugo y Dani ya están en `img/`. Para Nora, Marcos e Irene faltan estas; mientras no estén, la web muestra un recuadro con un icono:
+Son fotos de ambiente (sin pistas). Ya están todas en `img/`:
 
-| Nora | Marcos | Irene |
-| --- | --- | --- |
-| nora-1 · mesa de dibujo con ilustraciones | marcos-1 · guitarra eléctrica | irene-1 · perro en una protectora |
-| nora-2 · gata en una ventana | marcos-2 · ukelele | irene-2 · paisaje de un pueblo |
-| nora-3 · cuaderno de bocetos | marcos-3 · partitura | irene-3 · microscopio de laboratorio |
+| Hugo | Dani | Nora | Marcos | Irene |
+| --- | --- | --- | --- | --- |
+| hugo-1 … hugo-5 | dani-1 … dani-4 | nora-1 mesa de dibujo · nora-2 gata · nora-3 cuaderno | marcos-1 guitarra · marcos-2 ukelele · marcos-3 partitura | irene-1 perro en la protectora · irene-2 pueblo · irene-3 microscopio |
+
+Para cambiar alguna, pon la nueva en `originales/` con el mismo nombre.
 
 Y, si quieres, `hugo-avatar` y `dani-avatar` para las fotos de perfil.
 
