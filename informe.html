@@ -21,6 +21,7 @@ setCrumb(id ? [[`Expediente ${c.no}`, `expediente.html#${id}`], ["Informe"]] : [
 const T = (cols, rows) => `<div class="tplwrap"><table class="tpl"><tr>${cols.map(x => `<th>${x}</th>`).join("")}</tr>${Array.from({length: rows}, () => `<tr>${cols.map(() => `<td></td>`).join("")}</tr>`).join("")}</table></div>`;
 $("#view").innerHTML = `<article class="doc panel"><span class="eyebrow">P4 · Entrega</span><h1 style="font-size:28px">Informe de auditoría${c ? " · " + c.name : ""}</h1>
 <p style="margin:0">Copiad esta estructura en el documento APA del aula virtual y completadla. Cuando habléis de una evidencia, escribid su código (H1, R4, A1, C3…).</p>
+<p class="notice" style="margin:0">¿Dudas sobre cómo responder? Mirad el <a href="ejemplo.html${id ? "#" + id : ""}">informe de ejemplo</a> resuelto con un caso inventado.</p>
 <h2>1. Introducción</h2><p style="margin:0">En 3-5 líneas: quién es la persona, qué le ha pasado (lo tenéis en la ficha del expediente) y qué habéis investigado.</p>
 <h2>2. Respuestas a las preguntas guiadas</h2><p style="margin:0">Haced un apartado por herramienta (CyberSearch, Picto, Archivos y Panel de cuentas). Copiad cada pregunta y respondedla debajo. Añadid una captura de las evidencias más importantes.</p>
 <h2>3. ¿Qué ha pasado?</h2><p style="margin:0">Contad en orden lo que ocurrió, como si fuera una historia. Podéis empezar por la última pregunta del panel de cuentas.</p>${T(["Fecha", "Qué ocurrió", "Evidencia"], 4)}
